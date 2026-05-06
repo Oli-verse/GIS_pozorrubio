@@ -67,12 +67,12 @@ Github Copilot - Inline code completion
 **Note:** If pip install fails on GDAL, download the prebuilt wheel for your Python version from https://github.com/cgohlke/geospatial-wheels/releases and install it manually first.
 
 3. Run a script
-```
+
 ### Interactive click-to-route map
 python pozorrubio.py
 ### Socioeconomic overlay choropleth map
 python socio_overlay.py
-```
+
 
 ### Data Sources
 ```
