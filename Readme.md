@@ -15,7 +15,6 @@ Geospatial analysis of Pozorrubio, Pangasinan, Philippines. Maps barangay locati
 ### Project Structure
 ```
 pozorrubio_gis/
-├── venv/
 ├── data/
 │   ├── barangay_coords.csv
 │   ├── university_coords.csv
