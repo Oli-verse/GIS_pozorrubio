@@ -51,13 +51,13 @@ polyline
 pip install -r requirements.txt
 
 ### AI Tools Used
-
+```
 Google Gemini - Research and Implementations
 Claude - Code Review and Debugging
 Github Copilot - Inline code completion
-
+```
 ### Setup
-
+```
 1. Create virtual environment (.venv)
 
 2. Install Dependencies
@@ -72,7 +72,7 @@ Github Copilot - Inline code completion
 python pozorrubio.py
 ### Socioeconomic overlay choropleth map
 python socio_overlay.py
-
+```
 
 ### Data Sources
 ```
