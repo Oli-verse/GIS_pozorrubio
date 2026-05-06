@@ -34,7 +34,7 @@ pozorrubio_gis/
 └── README.md
 ```
 ### Requirements
-
+```
 folium
 branca
 pandas
@@ -45,7 +45,7 @@ shapely
 pyproj
 osrm
 polyline
-
+```
 
 **Install with:**
 pip install -r requirements.txt
@@ -61,9 +61,9 @@ Github Copilot - Inline code completion
 1. Create virtual environment (.venv)
 
 2. Install Dependencies
-
+```
     - pip install -r requirements.txt
-
+```
 **Note:** If pip install fails on GDAL, download the prebuilt wheel for your Python version from https://github.com/cgohlke/geospatial-wheels/releases and install it manually first.
 
 3. Run a script
@@ -74,7 +74,7 @@ python socio_overlay.py
 
 
 ### Data Sources
-
+```
 barangay_coords.csv   - Manually geocoded barangay centroids
 
 university_coords.csv - Manually geocoded university locations
@@ -84,21 +84,21 @@ bgysubmuns-municity-105530000.0.1.json - GADM / PhilGIS municipal boundary GeoJS
 barangay_with_psa_data.csv - PSA 2020 Census — population, wealth, education, OFW, agri
 
 pozorrubio_psa_data.csv - PSA 2020 Census - Common Household Questionaire
-
+```
 
 ### OSRM Routing
-
+```
 Scripts use the public OSRM demo server by default — no local installation needed.
 
 OSRM_BASE = "http://router.project-osrm.org"
 
 To use a local instance, replace the URL with your server address and start osrm-routed with a preprocessed Philippines PBF extract.
-
+```
 
 ### PSA Socioeconomic Indicators
 
 The socioeconomic map (socio_overlay.py) supports six switchable layers:
-
+```
 **Column**                         **Colors**
 Total_Population(Demographic)      Yellow → Red
 Avg_Wealth(Income)                 Yellow → Green
@@ -106,6 +106,7 @@ Pct_College_Grads(Education)       Light → Dark Blue
 Pct_Highschool_Grads(Education)    Light → Dark Blue
 Avg_OFW(Remittance)                Light → Purple
 Avg_Agri(Livelihood)               Light → Dark Red
+```
 
 
 
