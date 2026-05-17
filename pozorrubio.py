@@ -360,7 +360,7 @@ folium.LayerControl().add_to(map)
 
 # Export full commute CSV matrix 
 
-'''print("Exporting full commute matrix CSV...")
+print("Exporting full commute matrix CSV...")
 
 csv_records = []
 for brgy_name, routes in all_routes.items():
@@ -384,7 +384,7 @@ commute_df.to_csv('output/pozorrubio_commute_matrix.csv', index=False)
 print(f"CSV saved to 'output/pozorrubio_commute_matrix.csv'")
 print(f"Total rows: {len(commute_df)} "
       f"({len(barangays)} barangays × {len(universities)} universities)")
-print(commute_df.to_string())'''
+print(commute_df.to_string())
 
 map.save('output/pozorrubio_interactive.html')
 print("Map saved to 'output/pozorrubio_interactive.html'")
