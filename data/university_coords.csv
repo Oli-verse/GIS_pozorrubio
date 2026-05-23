@@ -1,21 +1,27 @@
-university_name,uni_latitude,uni_longitude
-University of Eastern Pangasinan,16.05043547,120.5878383
-Urdaneta City University,15.9807718,120.5605551
-Pangasinan State University - Urdaneta City,15.98842208,120.5736121
-Pangasinan State University - Asingan,15.98371004,120.6337042
-DMMMSU – South La Union Campus (SLUC)- Agoo,16.3256018,120.3716321
-DMMMSU – South La Union Campus (SLUC)- Sto. Tomas, 16.26777004,120.3847312
-DMMMSU – Mid La Union Campus (MLUC),16.60692742,120.315561
-Benguet State University - La Trinidad,16.4545358,120.5907145
-Central Luzon State University,15.73041441,120.9304297
-Tarlac State University - Tarlac,15.48748631,120.5879712
-Pangasinan State University - Lingayen,16.03239802,120.2296854
-Pangasinan State University - Bayambang,15.8130681,120.4523942
-Saint Louis University - Baguio,16.41915985,120.5972083
-University of the Philippines - Baguio,16.40533741,120.3429975
-University of Pangasinan - PHINMA,16.04722781,120.3429975
-University of the Philippines - Diliman,14.65591066,121.0596018
-University of the Philippines - Manila,14.57887638,120.9856805
-Polytechnic University of the Philippines - Manila,14.5979611,121.0108519
-Lyceum-Northwestern University,16.0357065,120.3303452
-Pangasinan Polytechnic College,16.03338546,120.2274656
+university_id,university_name,uni_latitude,uni_longitude
+7b04491b-613d-456b-9263-41aa368c702c,University of Eastern Pangasinan,16.05043547,120.5878383
+6abe78e0-4333-4bbe-99c6-18c2da151963,Urdaneta City University,15.9807718,120.5605551
+a35bbf62-310c-45b7-9a8e-54cc0c0dd5d3,Pangasinan State University - Urdaneta City,15.98842208,120.5736121
+51473747-8964-4c75-999f-ac2b822186d3,Pangasinan State University - Asingan,15.98371004,120.6337042
+4d951c08-4088-4bdd-a7c3-aa31fa745662,DMMMSU – South La Union Campus  (SLUC) - Agoo,16.3256018,120.3716321
+7bad2fc6-2bfa-4c21-9eb1-bcb5a2d0f09d,DMMMSU – South La Union Campus (SLUC) - Sto. Tomas,16.26777004,120.3847312
+c5e71b65-814e-4ac8-943c-aaadfd3ac9c3,DMMMSU – Mid La Union Campus (MLUC),16.60692742,120.315561
+01534c9d-598f-4cea-b501-4f1c61b40034,Benguet State University - La Trinidad,16.4545358,120.5907145
+9cbabfdd-6ea6-41fd-a8ee-9ec9c0e98738,Central Luzon State University,15.73041441,120.9304297
+6af1b663-79ed-44f0-9bdc-2f633209e0c8,Tarlac State University - Tarlac,15.48748631,120.5879712
+2b033b53-9b8d-4d7e-ac8f-41d751221197,Pangasinan State University - Lingayen,16.03239802,120.2296854
+1755657b-5bf9-4708-b99a-4d9ff1f05aa6,Pangasinan State University - Bayambang,15.8130681,120.4523942
+1a44733c-1765-478d-ad45-4e2e84a2510b,Saint Louis University - Baguio,16.41915985,120.5972083
+b377d069-d37a-4ed8-8333-2bc29e91a481,University of the Philippines - Baguio,16.40533741,120.3429975
+1aaa2089-438f-4e44-879f-7fe6c4e70685,University of Pangasinan - PHINMA,16.04722781,120.3429975
+0b882998-1cd6-4b21-acdd-1863bfef9198,University of the Philippines - Diliman,14.65591066,121.0596018
+e97ccf8f-f4bc-4489-a5b8-0a1d0ab8ba1c,University of the Philippines - Manila,14.57887638,120.9856805
+cba03b16-1344-4cca-bf25-e1bb0284b313,Polytechnic University of the Philippines - Manila,14.5979611,121.0108519
+6fbf3f5a-f7d5-4048-8c0b-83ce235a3fff,Lyceum-Northwestern University,16.0357065,120.3303452
+b4168889-9969-4eb3-b9db-98534144216b,Pangasinan Polytechnic College,16.03338546,120.2274656
+2b1be3c5-5e9e-4657-ae92-d9272203cc96,Philippine Military Academy,16.3611556,120.6194033
+789cb74e-d32c-41b7-b0bb-32787623c3db,Maritime Academy of Asia and the Pacific,14.4458555,120.5500763
+88103014-4e8c-43a9-91bc-d5b4b2441a3c,University of Baguio,16.4152721,120.5975194
+efe26969-ffdd-4cf3-8028-f26c99e3bb69,Pangasinan Merchant Marine Academy,16.042572,120.3416392
+11054f7d-0e09-4c19-82d6-b4625af49a7c,University of Cordilleras,16.408522,120.5979092
+dfe12106-723a-4852-baf9-fc9fcc3e0c0c,UP Manila School of Health Sciences - Tarlac,15.4960994,120.5811035

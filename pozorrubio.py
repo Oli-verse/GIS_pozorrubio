@@ -24,6 +24,7 @@ OSRM_BASE = "http://router.project-osrm.org"
 
 barangays    = pd.read_csv('data/barangay_coords.csv')
 universities = pd.read_csv('data/university_coords.csv')
+travels = pd.read_csv('data/brgy_univ_matrix_db.csv')
 
 # OSRM helper 
 
@@ -45,6 +46,27 @@ def get_route(origin_lon, origin_lat, dest_lon, dest_lat):
         print(f"  OSRM error: {e}")
         return None, None, None
 
+merged = travels.merge(
+    universities[['university_id', 'university_name']],
+    on='university_id',
+    how='left'
+)
+
+def label_travel(row):
+    if row['travel_count'] == 0:
+        return 'Remote'
+    elif pd.isna(row['travel_count']):
+        return '-'
+    else:
+        return f"{int(row['travel_count'])} ride{'s' if row['travel_count'] > 1 else ''}"
+
+merged['travel_label'] = merged.apply(label_travel, axis=1)
+
+travel_lookup = {
+    (r['barangay_name'], r['university_name']): r['travel_label']
+    for _, r in merged.iterrows()
+}
+
 # Pre-compute ALL barangay → university routes 
 
 print("Pre-computing all barangay → university routes...")
@@ -61,11 +83,14 @@ for i, (_, brgy) in enumerate(barangays.iterrows()):
             uni['uni_longitude'],    uni['uni_latitude']
         )
         if dur is not None:
+            uni_name = uni['university_name']
             all_routes[brgy_name].append({
                 'university':   uni['university_name'],
                 'duration_min': round(dur / 60, 1),
                 'distance_km':  round(dist / 1000, 2),
                 'coords':       [[c[1], c[0]] for c in coords],
+                'travel_label': travel_lookup.get((brgy_name, uni_name), '-'),
+                'is_remote':    travel_lookup.get((brgy_name, uni_name), '-') == 'Remote',
             })
         time.sleep(0.05)
 
@@ -198,22 +223,33 @@ for _, row in barangays.iterrows():
     if routes:
         all_rows = ""
         for idx, r in enumerate(routes):
-            color        = ROUTE_COLORS[idx % len(ROUTE_COLORS)]
-            shortest_tag = " ⭐" if idx == 0 else ""
-            bg           = "#f9fffe" if idx == 0 else "white"
+            color     = ROUTE_COLORS[idx % len(ROUTE_COLORS)]
+            is_remote = r.get('is_remote', False)
+            bg        = "#f9f9f9" if is_remote else ("#f9fffe" if idx == 0 else "white")
+            label_color = "#aaa" if is_remote else "#444"
+
+            dist_cell = "—" if is_remote else f"{r['distance_km']} km"
+            time_cell = "—" if is_remote else f"{r['duration_min']} min"
+            dot_color = "#ccc" if is_remote else color
+
             all_rows += f"""
             <tr style="border-bottom:1px solid #f0f0f0; background:{bg};">
-                <td style="padding:5px 6px;">
-                    <span style="color:{color}; font-size:14px;">●</span>
-                    &nbsp;{r['university']}{shortest_tag}
+                <td style="padding:5px 6px; color:{label_color};
+                        font-style:{'italic' if is_remote else 'normal'};">
+                    <span style="color:{dot_color}; font-size:14px;">●</span>
+                    &nbsp;{r['university']}
                 </td>
                 <td style="padding:5px 8px; text-align:center;
-                           white-space:nowrap; color:#444;">
-                    {r['distance_km']} km
+                        white-space:nowrap; color:{label_color};">
+                    {dist_cell}
                 </td>
                 <td style="padding:5px 8px; text-align:center;
-                           white-space:nowrap; color:#444;">
-                    {r['duration_min']} min
+                        white-space:nowrap; color:{label_color};">
+                    {time_cell}
+                </td>
+                <td style="padding:5px 8px; text-align:center;
+                        white-space:nowrap; color:{label_color}; font-size:11px;">
+                    {r['travel_label']}
                 </td>
             </tr>
             """
@@ -252,6 +288,10 @@ for _, row in barangays.iterrows():
                             <th style="padding:4px 8px; font-weight:600;
                                        color:#555; border-bottom:1px solid #ddd;">
                                 min
+                            </th>
+                            <th style="padding:4px 8px; font-weight:600;
+                                    color:#555; border-bottom:1px solid #ddd;">
+                                rides
                             </th>
                         </tr>
                     </thead>
@@ -370,6 +410,7 @@ for brgy_name, routes in all_routes.items():
             'University':    r['university'],
             'Distance (km)': r['distance_km'],
             'Time (mins)':   r['duration_min'],
+            'Rides':         r['travel_label'],
         })
 
 commute_df = pd.DataFrame(csv_records)
